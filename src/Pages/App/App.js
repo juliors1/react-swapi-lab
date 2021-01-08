@@ -1,23 +1,23 @@
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import { Route } from "react-router-dom";
+import StarshipList from "../StarshipList/StarshipList";
+import StarshipPage from "../StarshipPage/StarshipPage";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {};
+  render() {
+    return (
+      <>
+        <Route exact path="/" render={() => <StarshipList />} />
+        <Route
+          exact
+          path="/starship"
+          render={({ location }) => <StarshipPage location={location} />}
+        />
+      </>
+    );
+  }
 }
 
 export default App;
